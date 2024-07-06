@@ -1,25 +1,19 @@
-import { useState } from 'react'
-import './App.css'
-import Cardcreate from './componets/Cardcreate'
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Navbar from './componets/Navbar';
+import ProductDashboard from './componets/ProductDashboard';
+import AddProduct from './componets/AddProduct';
 
-
-
-function App() {
-  const [count, setCount] = useState(0)
-
+const App = () => {
   return (
-    <>
-    <Cardcreate />
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<ProductDashboard />} />
+        <Route path="/add-product" element={<AddProduct />} />
+      </Routes>
+    </Router>
+  );
+};
 
-    
-      {/* <Routes>
-        <Route path="/" element={<First name="ttt" />} />
-        <Route path="/s" element={<Second place="tvm"/>}/>
-        <Route path="/t" element={<Third name="shehnaz" />}/>
-        <Route path="/u" element={<Tablecreate/>}/>
-      </Routes> */}
-    </>
-  )
-}
-
-export default App
+export default App;
